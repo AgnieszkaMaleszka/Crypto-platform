@@ -1,2 +1,70 @@
 # Crypto-platform
 
+TradingPlatform::showUsers(): 
+Wyświetla listę zarejestrowanych użytkowników na platformie. Dla każdego użytkownika wywołuje funkcję userInfo(), która wyświetla szczegóły użytkownika, takie jak mail, imie, nazwisko wiek, stan konta (w $).
+
+TradingPlatform::showCryptos(): 
+Wyświetla listę dostępnych kryptowalut na platformie. Dla każdej kryptowaluty wywołuje funkcję cryptoInfo(), która wyświetla jej szczegóły takie jak nazwa lub kurs.
+
+TradingPlatform::addUser(): 
+Dodaje nowego użytkownika do platformy. Jeśli podany adres e-mail jest unikalny, tworzy nowego użytkownika i dodaje go do listy użytkowników.
+
+TradingPlatform::addUser(): 
+Przeciążona wersja funkcji addUser(), która umożliwia dodanie użytkownika z początkowym saldem na koncie.
+
+TradingPlatform::addUser(User &us): 
+Dodaje istniejącego użytkownika do platformy. Jeśli użytkownik o podanym adresie e-mail nie istnieje, dodaje go do listy użytkowników.
+
+TradingPlatform::addUser(): 
+Przeciążona wersja funkcji addUser(), która umożliwia dodanie użytkownika z początkowym saldem na koncie i historią transakcji.
+
+TradingPlatform::addCrypto(): 
+Dodaje nową kryptowalutę do platformy. Jeśli podana kryptowaluta nie istnieje, tworzy nową kryptowalutę i dodaje ją do listy kryptowalut.
+
+TradingPlatform::addCrypto(Crypto &cr): 
+Dodaje istniejącą kryptowalutę do platformy. Jeśli kryptowaluta o podanym symbolu waluty nie istnieje, dodaje ją do listy kryptowalut.
+
+TradingPlatform::changeRate(): 
+Pozwala użytkownikowi zmienić kurs kryptowaluty. Użytkownik podaje symbol waluty i nowy kurs, a funkcja aktualizuje kurs danej kryptowaluty.
+
+TradingPlatform::showUsersTransactions(): 
+Wyświetla transakcje użytkownika o określonym adresie e-mail. Użytkownik podaje adres e-mail, a funkcja wyświetla historię transakcji dla tego użytkownika. 
+
+TradingPlatform::showCryptosTransactions(): 
+Wyświetla transakcje określonej kryptowaluty. Użytkownik podaje symbol waluty, a funkcja wyświetla historię transakcji dla tej kryptowaluty.
+
+TradingPlatform::buyCryptocurrency(): 
+Pozwala użytkownikowi kupić kryptowalutę. Użytkownik podaje adres e-mail, ilość, symbol waluty i hasło. Jeśli transakcja zostanie zatwierdzona, aktualizuje saldo użytkownika.
+
+TradingPlatform::sellCryptocurrency(): 
+Pozwala użytkownikowi sprzedać kryptowalutę. Użytkownik podaje adres e-mail, ilość, symbol waluty i hasło. Jeśli transakcja zostanie zatwierdzona, aktualizuje saldo użytkownika.
+
+TradingPlatform::deposit(): 
+Pozwala użytkownikowi dokonać wpłaty na konto. Użytkownik podaje adres e-mail, kwotę i hasło. Jeśli wpłata zostanie zatwierdzona, aktualizuje saldo użytkownika.
+
+TradingPlatform::withdraw(): 
+Pozwala użytkownikowi wypłacić środki z konta. Użytkownik podaje adres e-mail, kwotę i hasło. Jeśli wypłata zostanie zatwierdzona, aktualizuje saldo użytkownika.
+
+TradingPlatform::giveTotalEquity(): 
+Oblicza i wyświetla łączną wartość aktywów użytkownika na podstawie ich saldo konta i posiadanych kryptowalut.
+
+TradingPlatform::predictLossProfit(): 
+Prognozuje potencjalne straty lub zyski w zależności od kursu kryptowaluty i ilości zakupionej/sprzedanej.
+
+TradingPlatform::readFileCryptos(): 
+Wczytuje dane dotyczące kryptowalut z pliku tekstowego i aktualizuje listę kryptowalut oraz ich transakcje.
+
+TradingPlatform::readFileUsers(): 
+Wczytuje dane użytkowników z pliku tekstowego i aktualizuje listę użytkowników oraz ich transakcje.
+
+TradingPlatform::saveFileUsers():
+Zapisuje dane użytkowników, transakcje i saldo kont na konto w pliku tekstowym.
+
+TradingPlatform::saveFileCryptos(): 
+Zapisuje dane kryptowalut, ich kursy i transakcje na konto w pliku tekstowym.
+
+TradingPlatform::changeUserData(): 
+Pozwala użytkownikowi zmienić swoje dane, takie jak hasło, imie, nazwisko, wiek. Użytkownik musi podać adres e-mail i stare hasło, a następnie może wprowadzić nowe dane.
+
+
+
