@@ -1,0 +1,12 @@
+USER: Alice Smith alice@example.com secret 25 1500
+TRANSACTIONS: 2023-10-04 Buy ETH 1 2800
+TRANSACTIONS: 2023-10-05 Sell BTC 0.5 47000
+BANK: Bitcoin 100USER: Jan Nowak john1@example.com 20 20 0
+USER: John Doe john@example.com password 30 1000
+TRANSACTIONS: 2023-10-01 Buy BTC 1.5 45000
+TRANSACTIONS: 2023-10-02 Sell ETH 2 3000
+TRANSACTIONS: 2023-10-03 Buy BTC 2 46000
+BANK: Bitcoin 10USER: Ann Kowalski kowalski@example.com AK 20 9900
+TRANSACTIONS: 2023 - 10 0 46000
+USER: Max Spencer spencer@example.com MS 40 8850
+TRANSACTIONS: 2023 - 10 0 46000
