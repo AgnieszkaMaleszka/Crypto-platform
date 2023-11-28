@@ -2,7 +2,9 @@
 #include "Bank.h"
 
 using namespace std;
-
+/*
+Bank class is bank account each user has his own account
+*/
 // Bank class constructor
 Bank::Bank() : balance(0), currency("$"){}
 

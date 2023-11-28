@@ -11,6 +11,7 @@ string Password: it is requaired to confirm bank operations like withdraw, depos
 int Age: age of user
 vector transactions:  contain user transaction
 */
+
 // Inheritene of Bank
 
 User::User() : Bank(0, "$"), transactions() {}
@@ -29,6 +30,7 @@ User::User(string newName, string newSurname, string newMail, string newPassword
 
 User::~User() {}
 
+//return user inforkmations 
 vector<Transaction<string>> &User::getTransactions() { return transactions; }
 
 string User::getName() { return name; }
@@ -43,7 +45,7 @@ int User::getAge() { return age; }
 
 void User::addTransaction(Transaction<string> &trans) { transactions.push_back(trans); }
 
-//changing data of usser, mail cannot be changed 
+//changing data of usser, it requaires to confirm by password, only main mail cannot be changed 
 void User::changeData(string pass)
 {
     if (pass == password)
@@ -104,7 +106,6 @@ void User::changeData(string pass)
                             {
                                 password = newData;
                             }
-
                             cout << data << " was successfully changed!" << endl;
                         }
                         else if (ch == 'X')
@@ -126,13 +127,14 @@ void User::changeData(string pass)
     }
 }
 
+//adding a new transaction
 vector<Transaction<string>> User::newTransaction(string newCurrency, string type, double newAmount, double newCourse)
 {
     Transaction<string> trans(newCurrency, type, newAmount, newCourse);
-    transactions.push_back(trans); // Dodawanie na końcu wektora
+    transactions.push_back(trans); 
     return transactions;
 }
-
+//shows what transactions user made, what currencies he bought or sold     
 void User::showTransactions()
 {
     for (auto transaction : transactions)
@@ -161,6 +163,7 @@ void User::userInfo()
     }
 }
 
+//buying currency by user 
 void User::buyCrypto(double amount, Crypto &cryptoName, User username)
 {
     double cost = amount * cryptoName.getExchangeRate();
@@ -174,11 +177,15 @@ void User::buyCrypto(double amount, Crypto &cryptoName, User username)
         }
         balance -= cost;
         cryptoBalances[cryptoName.getCurrency()] += amount;
-        transactions = username.newTransaction(cryptoName.getCurrency(), "buy", amount, cryptoName.getExchangeRate());
-        cryptoName.newTransaction(username.getMail(), "buy", amount, cryptoName.getExchangeRate());
+
+        //saving a transaction for user
+        transactions = username.newTransaction(cryptoName.getCurrency(), "buy", amount, cryptoName.getExchangeRate()); 
+        //saving a transaction for currency
+        cryptoName.newTransaction(username.getMail(), "buy", amount, cryptoName.getExchangeRate()); 
+            cout << currency << " was successfully bought.\n";
     }
 }
-
+//selling currency by user 
 void User::sellCrypto(double amount, Crypto &cryptoName, User username)
 {
     double cost = amount * (1 / cryptoName.getExchangeRate()); // 1/Rate
@@ -192,12 +199,18 @@ void User::sellCrypto(double amount, Crypto &cryptoName, User username)
         }else {
             balance += cost;
             cryptoBalances[cryptoName.getCurrency()] -= amount;
+
+            //saving a transaction for user
             transactions = username.newTransaction(cryptoName.getCurrency(), "sell", amount, (1 / cryptoName.getExchangeRate()));
+            //saving a transaction for currency
             cryptoName.newTransaction(username.getMail(), "sell", amount, cryptoName.getExchangeRate());
+
+            cout << currency << " was successfully sold.\n";
         }
     }
 }
 
+//calculate total account balance, adding a currency rates 
 double User::totalEquity(){
         string nm;
         double bal;
@@ -208,4 +221,4 @@ double User::totalEquity(){
             balance += cur.getExchangeRate() * bal;
         }
         return balance;
-    }
+}

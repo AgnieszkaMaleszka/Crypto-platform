@@ -1,9 +1,17 @@
 #include "TradingPlatform.h"
 
+/*
+Trading Platform pośredniczy między główną częścią programu a funkcjonalnością poszczególnych klas. 
+Wyświetla komunikaty oraz sprawdza poprawność danych np. hasła lub maila
+*/
 TradingPlatform::TradingPlatform() : users(), cryptos() {}
 
 TradingPlatform::~TradingPlatform() {}
 
+/*
+Displaying a list of registed users. For each user it calls a function userInfo, which display all details about user, 
+such as mail, name, surname, age or account balance.
+*/
 void TradingPlatform::showUsers() {
     std::cout << "List of registered users\n";
     for (const auto &entry : users) {
@@ -13,6 +21,10 @@ void TradingPlatform::showUsers() {
     }
 }
 
+/*
+Displaying a list of avaliable cryptocurrency. For each currency it calls a function cryptoInfo, which display all details about it, 
+such as name or actual rate.
+*/
 void TradingPlatform::showCryptos() {
     std::cout << "List of available cryptos\n";
     for (const auto &entry : cryptos) {
@@ -22,6 +34,9 @@ void TradingPlatform::showCryptos() {
     }
 }
 
+/*
+addUser - adding a new user to data base
+*/
 void TradingPlatform::addUser(std::string name, std::string surname, std::string mail, std::string password, int age) {
     if (users.find(mail) != users.end()) {
         std::cout << "This e-mail is already registered!\n";
@@ -60,7 +75,9 @@ void TradingPlatform::addUser(std::string name, std::string surname, std::string
         std::cout << "New user was successfully added\n";
     }
 }
-
+/*
+addCrypto - adding new cryptocurrency to data base
+*/
 void TradingPlatform::addCrypto(std::string currency, double rate) {
     if (cryptos.find(currency) != cryptos.end()) {
         std::cout << "This cryptocurrency is already registered!\n";
@@ -80,6 +97,9 @@ void TradingPlatform::addCrypto(Crypto &cr) {
     }
 }
 
+/*
+changeRate - allows user to change rate of cryptocurrency, the previous rate is  saved to predict new course in future
+*/
 void TradingPlatform::changeRate() {
     double newRate;
     std::string currency;
@@ -99,6 +119,9 @@ void TradingPlatform::changeRate() {
     }
 }
 
+/*
+displaying user transaction, what currency he bought or sold and for what rate
+*/
 void TradingPlatform::showUsersTransactions() {
     std::string mail;
     std::cout << "Enter address e-mail: ";
@@ -113,6 +136,9 @@ void TradingPlatform::showUsersTransactions() {
     }
 }
 
+/*
+displaying cryptocurrency transaction, if it was sold/bought by who for which rate 
+*/
 void TradingPlatform::showCryptosTransactions() {
     std::string currency;
     std::cout << "Enter currency: ";
@@ -127,6 +153,9 @@ void TradingPlatform::showCryptosTransactions() {
     }
 }
 
+/*
+buying a cryptocurrency and display an account balance of user 
+*/
 void TradingPlatform::buyCryptocurrency() {
     std::string mail;
     double amount;
@@ -158,6 +187,9 @@ void TradingPlatform::buyCryptocurrency() {
     }
 }
 
+/*
+sell a cryptocurrency and display an account balance of user 
+*/
 void TradingPlatform::sellCryptocurrency() {
     std::string mail;
     double amount;
@@ -184,12 +216,14 @@ void TradingPlatform::sellCryptocurrency() {
     } else {
         if (password == users[mail].getPassword()) {
             users[mail].sellCrypto(amount, cryptos[currency], users[mail]);
-            std::cout << currency << " was successfully sold.\n";
             std::cout << "Your account balance: " << users[mail].getBalance() << users[mail].getAccountCurrency() << std::endl;
         }
     }
 }
 
+/*
+user can deposit money, it is add to his bank account
+*/
 bool TradingPlatform::deposit() {
     std::string mail;
     double amount;
@@ -228,6 +262,9 @@ bool TradingPlatform::deposit() {
     }
 }
 
+/*
+user can withdraw money it is subtract from his bank account, also it is checked whether he has enough cash 
+*/
 bool TradingPlatform::withdraw() {
     std::string mail;
     double amount;
@@ -266,6 +303,9 @@ bool TradingPlatform::withdraw() {
     }
 }
 
+/*
+calculate total accpint ballance with added all cryptocurrencies with present rate 
+*/
 void TradingPlatform::giveTotalEquity() {
     std::string mail;
     std::string password;
@@ -287,6 +327,9 @@ void TradingPlatform::giveTotalEquity() {
     }
 }
 
+/*
+predict loss or earn money when you sell the cryptocurrency, it is calculated by previous courses 
+*/
 void TradingPlatform::predictLossProfit() {
     std::string currency;
     double amount;
@@ -314,6 +357,9 @@ void TradingPlatform::predictLossProfit() {
     }
 }
 
+/*
+load data about crypto currencies from file 
+*/
 void TradingPlatform::readFileCryptos() {
     std::ifstream file("cryptos.txt");
     if (!file.is_open()) {
@@ -353,6 +399,9 @@ void TradingPlatform::readFileCryptos() {
     std::cout << "Cryptocurrency transactions and exchange rates were successfully imported." << std::endl;
 }
 
+/*
+load data about users from file 
+*/
 void TradingPlatform::readFileUsers() {
     std::ifstream file("users.txt");
     if (!file.is_open()) {
@@ -394,9 +443,12 @@ void TradingPlatform::readFileUsers() {
     std::cout << "Users and transactions were successfully imported." << std::endl;
 }
 
+/*
+upload data about users to file
+*/
 void TradingPlatform::saveFileUsers() {
     std::ofstream file;
-    file.open("C:\\Users\\aga03\\github-classroom\\dataproctech\\pierwszy-projekt-AgnieszkaMaleszka\\TradeCrypto\\files\\users.txt"); // Fixed path
+    file.open("users.txt"); // Fixed path
     file << std::endl;
     if (!file.good()) {
         std::cout << "File users.txt does not exist in folder TradeCrypto\\files" << std::endl;
@@ -424,9 +476,12 @@ void TradingPlatform::saveFileUsers() {
     std::cout << "User data was successfully saved." << std::endl;
 }
 
+/*
+upload data about cryptocurrency to file
+*/
 void TradingPlatform::saveFileCryptos() {
     std::ofstream file;
-    file.open("C:\\Users\\aga03\\github-classroom\\dataproctech\\pierwszy-projekt-AgnieszkaMaleszka\\TradeCrypto\\files\\cryptos.txt"); // Fixed path
+    file.open("cryptos.txt"); // Fixed path
     file << std::endl;
     if (!file.good()) {
         std::cout << "File cryptos.txt does not exist in folder TradeCrypto\\files" << std::endl;
@@ -452,7 +507,11 @@ void TradingPlatform::saveFileCryptos() {
     }
     std::cout << "Cryptocurrency data was successfully saved." << std::endl;
 }
-    void TradingPlatform::changeUserData(){
+
+/*
+changing user informations
+*/
+void TradingPlatform::changeUserData(){
         string mail, password;
         cout << "Enter address e-mail: ";
         cin >> mail;
