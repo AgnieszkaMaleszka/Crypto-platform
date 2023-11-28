@@ -1,6 +1,6 @@
-##Features
+## Features
 
-###Class User:
+### Class User:
 
 **1.	User Data Management:**
 
@@ -23,7 +23,7 @@
 -	Inheritance from the Bank class.
 -	Displaying information about the user's account status.
 
-###Class Bank (bank account):
+### Class Bank (bank account):
 
 The Bank class represents a user's bank account, capable of managing balances in a main currency and optional balances in various cryptocurrencies. It provides functionality for initializing account details, depositing and withdrawing money, and managing cryptocurrency balances.
 
@@ -40,7 +40,7 @@ The Bank class represents a user's bank account, capable of managing balances in
 
 -	Throwing an exception in case of insufficient funds during a withdrawal.
   
-##Transaction Class: 
+## Transaction Class: 
 
 **1.	Transaction Recording:**
 
@@ -48,7 +48,7 @@ The Bank class represents a user's bank account, capable of managing balances in
 -	Displaying Transaction Information: 
 -	Reviewing transaction history.
   
-##Crypto Class:
+## Crypto Class:
 
 The Crypto class represents a cryptocurrency within the trading platform. It encapsulates information such as the currency's name, exchange rate, transaction history, and past exchange rates. The class facilitates operations like changing the exchange rate, displaying information, calculating profit or loss, and managing transactions.
 
@@ -62,7 +62,7 @@ The Crypto class represents a cryptocurrency within the trading platform. It enc
 
 -	Adding and displaying information about cryptocurrencies and trastactions.
 
-##TradingPlatform class:
+## TradingPlatform class:
 
 The TradingPlatform class acts as an intermediary between the main program and the functionalities of individual classes. It handles user registration, cryptocurrency management, and facilitates various transactions. The class is responsible for displaying messages, validating data (e.g., passwords or emails), and managing interactions between users and cryptocurrencies.
 
@@ -90,7 +90,7 @@ The TradingPlatform class acts as an intermediary between the main program and t
 
 -	Saving information about registered users or cryptocurrencies in the system
 
-##General Remarks: 
+## General Remarks: 
 
 **1.	Security Measures:**
 
@@ -104,7 +104,7 @@ The TradingPlatform class acts as an intermediary between the main program and t
 
 -	Enabling users to manage their funds in both traditional currency and cryptocurrencies.
 
-##Object-Oriented Approach:
+## Object-Oriented Approach:
 
 **1.	Encapsulation**
 
@@ -128,9 +128,9 @@ Overloading operators + and - in the Bank class. This is a form of compile-time 
 
 -	Template: The class Transaction is designed as a template, allowing it to work with different types of entities (e.g., string, int). For example if user would have another identifier. For example instead of email (String), id given by system.  
 
-##User Interaction and Main Program:
+## User Interaction and Main Program:
 
--	Menu-Driven Interface: The application employs a menu-driven interface, allowing users to create, perform transactions, and view account information through a structured menu system.
--	Object Creation: Users have the capability to dynamically create objects of the Users and Cryptos classes, enabling the flexible instantiation of user and cryptocurrency entities.
--	Transaction Handling: The system adeptly manages diverse transactions, ensuring the validation of proper balance and security measures. Real-time updates are displayed to provide users with timely information on their transactions.
+-	**Menu-Driven Interface:** The application employs a menu-driven interface, allowing users to create, perform transactions, and view account information through a structured menu system.
+-	**Object Creation:** Users have the capability to dynamically create objects of the Users and Cryptos classes, enabling the flexible instantiation of user and cryptocurrency entities.
+-	**Transaction Handling:** The system adeptly manages diverse transactions, ensuring the validation of proper balance and security measures. Real-time updates are displayed to provide users with timely information on their transactions.
 
