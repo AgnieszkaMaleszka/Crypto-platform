@@ -1,5 +1,5 @@
-Features
-Class User:
+****Features****
+**Class User:**
 1.	User Data Management:
   •	Changing first name, last name, password (with validation).
   •	Displaying user information.
@@ -65,18 +65,25 @@ Object-Oriented Approach:
   • Private Data Members: 
   The User class encapsulates private data members such as name, surname, address email password, age or made transactions. Data is hidden and accessed through member functions, ensuring data integrity and security.
 2.	Inheritance
+ 
   •	Account Hierarchy: 
   The User class inherits from the Bank class because each user has their own bank account on which they can perform operations. This hierarchical structure allows for code reuse and extensibility."
 3.	Polymorphism 
+ 
   •	Polymorphism: 
   Adding user method in TradingPlatform class. It allows to add users with different data.  
+
   •	Overloading operators: 
   Overloading operators + and - in the Bank class. This is a form of compile-time polymorphism. It allows for more convenient deposit and withdrawal operations from the account. 
 4.	Template class
+ 
   •	Template: The class Transaction is designed as a template, allowing it to work with different types of entities (e.g., string, int). For example if user would have another identifier. For example instead of email (String), id given by system.  
 
 User Interaction and Main Program: 
+
   •	Menu-Driven Interface: The application employs a menu-driven interface, allowing users to create, perform transactions, and view account information through a structured menu system.
+  
   •	Object Creation: Users have the capability to dynamically create objects of the Users and Cryptos classes, enabling the flexible instantiation of user and cryptocurrency entities.
+  
   •	Transaction Handling: The system adeptly manages diverse transactions, ensuring the validation of proper balance and security measures. Real-time updates are displayed to provide users with timely information on their transactions.
 
