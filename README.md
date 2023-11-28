@@ -1,16 +1,25 @@
 ##Features
+
 ###Class User:
+
 **1.	User Data Management:**
+
 -	Changing first name, last name, password (with validation).
 -	Displaying user information.
+  
 **2.	Transactions:**
+ 	
 -	Adding new transactions.
 -	Displaying transaction history.
+  
 **3.	Cryptocurrency Trading:**
+
 -	Buying and selling cryptocurrencies.
 -	Tracking user balance in different cryptographic currencies.
 -	Displaying information about owned cryptocurrencies.
+  
 **4.	Connection with the Bank class (bank account):**
+
 -	Inheritance from the Bank class.
 -	Displaying information about the user's account status.
 
@@ -19,11 +28,16 @@
 The Bank class represents a user's bank account, capable of managing balances in a main currency and optional balances in various cryptocurrencies. It provides functionality for initializing account details, depositing and withdrawing money, and managing cryptocurrency balances.
 
 **1.	Managing Account State:**
+
 -	Deposits and withdrawals of funds. 
--	Tracking account balance in different currencies. 
+-	Tracking account balance in different currencies.
+  
 **2.	Cryptocurrency Handling:** 
--	Updating and displaying the account balance in cryptocurrencies. 
+
+-	Updating and displaying the account balance in cryptocurrencies.
+  
 **3.	Exception Handling:** 
+
 -	Throwing an exception in case of insufficient funds during a withdrawal.
   
 ##Transaction Class: 
